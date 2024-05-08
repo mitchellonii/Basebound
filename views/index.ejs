@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css" />
+    <title>Document</title>
+</head>
+
+<body class="lobby">
+    <div class="lobby-bg">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="main">
+        <div class="header">
+            <div class="user">
+                <img src="/api/account/pfp" />
+
+                <h1>
+                    <%= user.username%>
+                </h1>
+            </div>
+            <div class="wins">
+                <h1>
+                    <%= user.wins%>
+                </h1>
+            </div>
+            <div class="spacer"></div>
+            <div class="coins">
+                <h1>
+                    <%= user.coins%>
+                </h1>
+                <img src="/static/coin-large.png" />
+            </div>
+            <div class="gems">
+                <h1>
+                    <%= user.gems%> gems
+                </h1>
+            </div>
+        </div>
+        <div class="content">
+            <img class="logo" src="/static/logo-large.png" />
+            <img class="player" src="/static/characters/robot-front.png" />
+            <button class="play" onclick="window.location.href='/game/join'">Play</button>
+        </div>
+    </div>
+    <audio src="/static/lobby-music.mp3" autoplay loop></audio>
+</body>
+
+</html>

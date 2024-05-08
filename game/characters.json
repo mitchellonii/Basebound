@@ -1,0 +1,8 @@
+{
+    "case": {
+        "name": "Case",
+        "baseHealth": 1000,
+        "baseDamage": 5,
+        "skin": "/static/case.webp"
+    }
+}

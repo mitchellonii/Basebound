@@ -1,0 +1,161 @@
+@font-face {
+    font-family: 'fortnite';
+    src: url('/static/Fortnite.ttf');
+}
+
+h1 {
+    margin: 0;
+    font-family: "fortnite";
+}
+
+body {
+    overflow: hidden;
+}
+
+
+.lobby>.lobby-bg {
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.lobby>.lobby-bg>:nth-child(1) {
+    width: 200%;
+    height: 100%;
+    background-image: url(/static/lobby-bg-bg.png);
+    background-size: 100% 100%;
+    background-repeat: repeat-x;
+    animation: bg-scroll 120s linear infinite;
+    position: absolute;
+    z-index: 1
+}
+
+.lobby>.lobby-bg>:nth-child(2) {
+    width: 100%;
+    height: 100%;
+    background-image: url(/static/lobby-bg-foreground.png);
+    background-size: 100% 100%;
+    position: absolute;
+    z-index: 2
+}
+
+.lobby>.lobby-bg>:nth-child(3) {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 20);
+    opacity: 0.3;
+    z-index: 3;
+    position: absolute;
+}
+
+
+.main>.header {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px;
+    box-sizing: border-box;
+    gap: 50px;
+}
+
+.header>.spacer {
+    flex-grow: 1;
+    height: 100px;
+    width: auto;
+}
+
+.header>:not(.spacer) {
+    width: max-content;
+    height: max-content;
+    transform: skew(5deg);
+    background: #929598;
+    top: 0;
+    position: relative;
+    border-radius: 5px;
+    border: 2px black solid;
+    box-shadow: inset 0 7px 9px -7px rgba(255, 255, 255, 0.4), -7px 9px 0 0 rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+
+}
+
+.header>:not(.spacer)>* {
+    transform: skew(-5deg);
+}
+
+.header>:not(.spacer)>img {
+    height: 40px;
+    position: relative;
+}
+
+@keyframes bg-scroll {
+    0% {
+        background-position-x: 0vw;
+    }
+
+    100% {
+        background-position-x: 100vw;
+        ;
+    }
+}
+
+.content {
+    width: 100%;
+    height: calc(100% - 200px);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.content>.logo {
+    width: 400px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.player {
+    width: 700px;
+    position: relative;
+    top: 300px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+button {
+    width: max-content;
+    height: max-content;
+    transform: skew(5deg);
+    background: #929598;
+    top: 0;
+    position: relative;
+    border-radius: 5px;
+    border: 2px black solid;
+    box-shadow: inset 0 7px 9px -7px rgba(255, 255, 255, 0.4), -7px 9px 0 0 rgba(0, 0, 0, 0.4);
+    padding-left: 10px;
+    padding-right: 10px;
+    box-sizing: border-box;
+    font-family: 'fortnite';
+    font-size: 60px;
+    cursor: pointer;
+    position: fixed;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+}

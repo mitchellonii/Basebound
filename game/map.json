@@ -1,0 +1,17 @@
+{
+    "sizeX": 100,
+    "sizeY": 100,
+    "spawnPoints": [
+        [
+            90,
+            10
+        ],
+        [
+            10,
+            90
+        ]
+    ],
+    "floorTexture": "/url to texture",
+    "bushTexture": "/",
+    "bushes": []
+}
