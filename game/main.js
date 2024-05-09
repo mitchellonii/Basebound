@@ -283,7 +283,7 @@ class Game {
                                 var diffX = Math.abs(pp.position[0] - this.buildings[p].position[0])
                                 var diffY = Math.abs(pp.position[1] - this.buildings[p].position[1])
 
-                                if (diffX < 1.4 && diffY < 1.4) {
+                                if (diffX < 1.4 && diffY < 1.4 && pp.owner !== this.buildings[p].owner) {
                                     this.buildings[p].health -= 20
                                     pp.dead = true
                                 }

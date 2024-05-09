@@ -3,8 +3,12 @@ const ctx = canvas.getContext("2d")
 var cellSize = 50
 
 
-var socket = new WebSocket(`ws:${window.location.href.replace(window.location.protocol, "")}`)
-
+var socket;
+if (window.location.protocol === "https:") {
+    socket = new WebSocket(`wss:${window.location.href.replace(window.location.protocol, "").replace("ws:", "")}`);
+} else {
+    socket = new WebSocket(`ws:${window.location.href.replace(window.location.protocol, "")}`);
+}
 
 
 var imgAssets = {
