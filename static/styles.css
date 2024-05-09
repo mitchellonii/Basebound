@@ -67,6 +67,7 @@ body {
     margin: 20px;
     box-sizing: border-box;
     gap: 50px;
+    z-index: 100
 }
 
 .header>.spacer {
@@ -158,4 +159,8 @@ button {
     top: 80%;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.gems {
+    transform: skew(5deg) translateX(-30px) !important
 }

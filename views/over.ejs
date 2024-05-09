@@ -6,11 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Basebound | Game over</title>
     <style>
+        body {
+            background: radial-gradient(circle, rgba(47, 126, 253, 1) 43%, rgba(25, 36, 142, 1) 100%);
+
+        }
+
+        @font-face {
+            font-family: 'fortnite';
+            src: url('/static/Fortnite.ttf');
+        }
+
+        h1 {
+            color: black;
+            font-family: "fortnite";
+            width: 100%;
+            text-align: center;
+            position: relative
+        }
+
+        .go {
+            font-size: 70px
+        }
+
+        img {
+            width: 600px;
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+        }
+
+        button {
+            width: max-content;
+            height: max-content;
+            transform: skew(5deg);
+            background: #929598;
+            top: 0;
+            position: relative;
+            border-radius: 5px;
+            border: 2px black solid;
+            box-shadow: inset 0 7px 9px -7px rgba(255, 255, 255, 0.4), -7px 9px 0 0 rgba(0, 0, 0, 0.4);
+            padding-left: 10px;
+            padding-right: 10px;
+            box-sizing: border-box;
+            font-family: 'fortnite';
+            font-size: 60px;
+            cursor: pointer;
+            position: fixed;
+            top: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     </style>
 </head>
 
 <body>
-    <h1>Game over :(</h1>
+    <h1 class="go">Game over</h1>
+    <h1 class="pos"></h1>
+    <h1 class="troph"></h1>
+    <img src="/static/characters/robot-front.png">
+    <button class="play" onclick="window.location.href='/'">Return to lobby</button>
+
+
+    <script>
+        function queryStringToObject(queryString) {
+            let params = {};
+            // Remove the '?' at the beginning if present
+            if (queryString.charAt(0) === '?') {
+                queryString = queryString.slice(1);
+            }
+            // Split the query string into key-value pairs
+            queryString.split('&').forEach(pair => {
+                let parts = pair.split('=');
+                let key = decodeURIComponent(parts[0]);
+                let value = decodeURIComponent(parts[1] || '');
+                // If the key already exists, convert the value to an array
+                if (params[key]) {
+                    if (Array.isArray(params[key])) {
+                        params[key].push(value);
+                    } else {
+                        params[key] = [params[key], value];
+                    }
+                } else {
+                    params[key] = value;
+                }
+            });
+            return params;
+        }
+
+        // Example usage:
+        let searchParams = queryStringToObject(window.location.search);
+        document.querySelector(".pos").innerText = `Position: ${searchParams.position}`
+        document.querySelector(".troph").innerText = `Coins: +${100 - searchParams.position * 10}`
+
+    </script>
 </body>
 
 </html>

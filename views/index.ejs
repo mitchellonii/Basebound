@@ -17,16 +17,16 @@
 
     <div class="main">
         <div class="header">
-            <div class="user">
+            <div class="user" onclick="changeUname()">
                 <img src="/api/account/pfp" />
 
-                <h1>
+                <h1 class="username">
                     <%= user.username%>
                 </h1>
             </div>
             <div class="wins">
                 <h1>
-                    <%= user.wins%>
+                    <%= user.wins%> wins
                 </h1>
             </div>
             <div class="spacer"></div>
@@ -49,6 +49,18 @@
         </div>
     </div>
     <audio src="/static/lobby-music.mp3" autoplay loop></audio>
+    <script defer>
+        function changeUname() {
+            var name = prompt("enter username")
+            fetch("/api/account/rename", {
+                "method": "POST",
+                "headers": { "Content-Type": "application/json" },
+                body: JSON.stringify({ name: name })
+            })
+            document.querySelector(".username").innerText = name
+
+        }
+    </script>
 </body>
 
 </html>

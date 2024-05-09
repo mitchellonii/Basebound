@@ -151,8 +151,14 @@ class Game {
             players = Object.fromEntries(Object.keys(this.upgradedConnections).map(key => [key, {}]));
             var pl = Object.keys(players)
 
+            var world = {
+                size: this.worldSize,
+                border: [75, 50],
+                crates: [[10, 10], [28, 3], [25, 18], [15, 5], [8, 10], [9, 18]]
+            }
+
             pl.forEach(async (p) => {//intitialise
-                players[p].position = [0, 0]
+                players[p].position = [Math.random() * world.size[0], Math.random() * world.size[1]]
                 players[p].health = 100
                 players[p].character = "Robot"
                 players[p].direction = "Right"
@@ -163,12 +169,6 @@ class Game {
                 players[p].superCharge = 0;
                 players[p].scrap = 0;
             })
-
-            var world = {
-                size: this.worldSize,
-                border: [75, 50],
-                crates: [[10, 10], [28, 3], [25, 18], [15, 5], [8, 10], [9, 18]]
-            }
 
 
 

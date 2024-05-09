@@ -15,7 +15,7 @@ var imgAssets = {
     lightningProjectile: createAsset("/static/lightning.png"),
     crate: createAsset("/static/crate.png"),
     pot: createAsset("/static/hotpot.png"),
-    floor: createAsset("/static/floor.jpeg")
+    floor: createAsset("/static/floor.png")
 
 }
 
@@ -209,7 +209,7 @@ function drawGrid() {
     }
 
     // Set line color and draw the lines
-    ctx.strokeStyle = '#929598';
+    ctx.strokeStyle = 'rgba(146, 149, 152,0.3)';
     ctx.stroke();
     ctx.closePath();
 
